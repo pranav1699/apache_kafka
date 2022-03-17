@@ -17,7 +17,7 @@ def get_registered_user():
         {'query': '{job="MT4-FTMO-Demo"} |= "login"','limit': '100'})
 
     s = requests.Session()
-    r = s.get("http://178.238.224.129:9900/loki/api/v1/query",
+    r = s.get("http://localhost:3100/loki/api/v1/query",
             stream=True, params=urls)
 
     data = r.json()
