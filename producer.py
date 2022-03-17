@@ -43,9 +43,6 @@ def get_registered_user():
                     'message': log_message[0]
                 }
        
-  
-
-
 
 producer = KafkaProducer(bootstrap_servers=['localhost:9092'],value_serializer=serializer)
 
