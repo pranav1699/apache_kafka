@@ -14,7 +14,7 @@ def serializer(message):
 def get_registered_user():
     today = date.today()
     urls = urllib.parse.urlencode(
-        {'query': '{job="MT4-FTMO-Demo"} |= "login"','limit': '100'})
+        {'query': '{job="Demo"} |= "login"','limit': '100'})
 
     s = requests.Session()
     r = s.get("http://localhost:3100/loki/api/v1/query",
