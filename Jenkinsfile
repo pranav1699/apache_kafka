@@ -1,23 +1,26 @@
-pipeline {
+ipeline {
   agent any
   stages {
     stage("verify tooling") {
       steps {
-        bat '''
+        sh '''
           docker version
           docker info
-          docker compose version
+          docker compose version 
         '''
       }
     }
     stage('Prune Docker data') {
       steps {
-        bat 'docker system prune -a --volumes -f'
+        sh 'docker system prune -a --volumes -f'
       }
     }
     stage('Start container') {
       steps {
-        bat 'docker compose up -d '
-        bat 'docker compose ps'
+        sh 'docker compose up -d'
+        sh 'docker compose ps'
       }
     }
+    
+  }
+}
