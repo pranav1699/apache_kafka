@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Stop and remove prev docker container') {
       steps {
-        bat 'docker rm kafka-git-jenkins'
+        bat 'docker container rm kafka-git-jenkins'
       }
     }
     stage('Start container') {
