@@ -12,7 +12,7 @@ pipeline {
     }
     stage("Remove containers"){
       steps{
-      bat 'docker compose down'
+      bat 'docker-compose down --remove-orphans'
         
       }
     }
@@ -20,8 +20,8 @@ pipeline {
     
     stage('Start containers') {
       steps {
-        bat 'docker compose up -d'
-        bat 'docker compose ps'
+        bat 'docker-compose up -d'
+        bat 'docker-compose ps'
       }
     }
     
