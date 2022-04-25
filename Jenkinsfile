@@ -12,7 +12,7 @@ pipeline {
     }
     stage("Remove containers"){
       steps{
-      bat 'docker network rm kafka-git-jenkins'
+      bat 'docker compose down'
         
       }
     }
