@@ -12,14 +12,7 @@ pipeline {
     }
     stage('Stop and remove prev docker container') {
       steps {
-        bat '''for /f %%i in ('docker ps -qf "name=^kafka-git-jenkins"') do set containerId=%%i
-echo %containerId%
-If "%containerId%" == "" (
-  echo "No Container running"
-) ELSE (
-  docker stop %ContainerId%
-  docker rm -f %ContainerId%
-)'''
+        bat 'docker rm kafka-git-jenkins'
       }
     }
     stage('Start container') {
