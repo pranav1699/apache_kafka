@@ -5,25 +5,12 @@ services:
     image: wurstmeister/zookeeper
     container_name: zookeeper
     ports:
-      - "2181:2181"
+      - "2182:2182"
   kafka:
     image: wurstmeister/kafka
     container_name: kafka
     ports:
-      - "9092:9092"
+      - "9091:9091"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-   postgres:
-        image: postgres:10.5
-        container_name: postgres
-        restart: always
-        environment:
-          - POSTGRES_USER=postgres
-          - POSTGRES_PASSWORD=postgres
-        logging:
-          options:
-            max-size: 10m
-            max-file: "3"
-        ports:
-          - '5438:5432'
