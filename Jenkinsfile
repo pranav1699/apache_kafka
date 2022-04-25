@@ -10,9 +10,16 @@ pipeline {
         '''
       }
     }
-    stage('Prune Docker data') {
+    stage('Stop and remove prev docker container') {
       steps {
-        bat 'docker system prune -a --volumes -f'
+        bat '''for /f %%i in ('docker ps -qf "name=^kafka-git-jenkins"') do set containerId=%%i
+echo %containerId%
+If "%containerId%" == "" (
+  echo "No Container running"
+) ELSE (
+  docker stop %ContainerId%
+  docker rm -f %ContainerId%
+)'''
       }
     }
     stage('Start container') {
