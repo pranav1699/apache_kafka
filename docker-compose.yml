@@ -23,3 +23,11 @@ services:
      - POSTGRES_USER=postgresuser
      - POSTGRES_PASSWORD=postgrespw
      - POSTGRES_DB=inventory
+  mysql:
+    image: debezium/example-mysql:1.8
+    ports:
+     - 3306:3306
+    environment:
+     - MYSQL_ROOT_PASSWORD=debezium
+     - MYSQL_USER=mysqluser
+     - MYSQL_PASSWORD=mysqlpw 
