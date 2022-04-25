@@ -25,7 +25,7 @@ services:
      - POSTGRES_DB=inventory
      
   mysql:
-    image: debezium/example-mysql:${DEBEZIUM_VERSION}
+    image: debezium/example-mysql
     ports:
      - 3306:3306
     environment:
